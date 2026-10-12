@@ -1,0 +1,30 @@
+//Write a Java program to determine whether a given positive integer is a Strong Number.
+import java.util.Scanner;
+public class strong_number {
+    int factorial(int n){
+        int fact = 1;
+        for(int i=1;i<=n;i++){
+            fact = fact*i;
+        }
+        return fact;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        strong_number sn = new strong_number();
+        System.out.println("enter number:");
+        int number = sc.nextInt();
+        int original=number;
+        int sum = 0;
+        while(number>0){
+            int digit = number / 10;
+            sum = sum + sn.factorial(digit);
+            number=number/10;
+        }
+        if(sum == original){
+            System.out.println("this number is strong number"+original);
+        }else{
+            System.out.println("this number is not strong number"+original);
+        }
+        sc.close();
+    }
+}
